@@ -1,79 +1,69 @@
 package com.example.alextagocsfair;
 
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
-
 public class SecondActivity extends AppCompatActivity {
-    String url = "https://www.wildflower.org/collections/collection.php?start=0&collection=fl&pagecount=";
-    int count = 0;
-    TextView tv2;
-    TextView tv3;
+    String location;
+
+    private static final String[] locations = new String[] {
+            "Select State:",
+            "AL", "AK", "AZ", "AR", "CA_North",
+            "CA_South", "CO", "CT","DC", "DE",
+            "FL", "FL_North", "FL_Central", "FL_South", "GA",
+            "HI", "ID", "IL", "IN", "IA",
+            "KS", "KY", "LA", "ME", "MD",
+            "MA", "MI", "MN", "MS", "MO",
+            "MT", "NE", "NV", "NH", "NJ",
+            "NM", "NY", "NC", "ND", "OH",
+            "OK", "OR", "PA", "RI", "SC",
+            "SD", "TN", "TX_East", "TX_Central", "TX_NorthCentral",
+            "TX_West", "TX_HighPlains", "TX_South", "UT", "VT",
+            "VA", "WA", "WV", "WI", "WY"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.third_layout);
-        tv2 = findViewById(R.id.textView2);
-        tv3 = findViewById(R.id.textView3);
-        EditText ed3 = findViewById(R.id.editTextTextPersonName3);
-        Button bt = findViewById(R.id.button2);
+        setContentView(R.layout.second_layout);
 
-        webscrape wb = new webscrape();
+        TextView tv4 = findViewById(R.id.textView4);
+        Button button3 = findViewById(R.id.button3);
 
-        bt.setOnClickListener(view -> {
-            count = Integer.parseInt((ed3.getText().toString()));
-            url = "https://www.wildflower.org/collections/collection.php?start=0&collection=fl&pagecount=" + count;
-//            if(!wb.isCancelled()){
-//                wb.cancel(true);
-//            }
-            wb.execute();
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, locations);
+        Spinner spinner = findViewById(R.id.spinner1);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                if(position > 0){
+                    location = locations[position];
+                    Toast.makeText(SecondActivity.this, "Location: "+location, Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
         });
 
+        button3.setOnClickListener(view ->{
+            Intent i = new Intent(SecondActivity.this, ThirdActivity.class);
+            i.putExtra("location", location);
+            startActivity(i);
+        });
+
+
+
+        };
     }
-
-    private class webscrape extends AsyncTask<Void, Void, Void>{
-        String text = "";
-        int i = 0;
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try{
-                Document doc = Jsoup.connect(url).get();
-                Elements plant_names = doc.select("i");
-                for (Element p: plant_names) {
-                    i++;
-                    text += i + ". " + p.text() + "\n";
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid){
-                tv2 = findViewById(R.id.textView2);
-                tv2.setText(text);
-
-        }
-    }
-}
-
-
-
-
-
-
