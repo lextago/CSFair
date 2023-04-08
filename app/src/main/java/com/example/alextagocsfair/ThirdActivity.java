@@ -1,18 +1,17 @@
 package com.example.alextagocsfair;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,13 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ThirdActivity extends AppCompatActivity{
-    List<String> plant_names = new ArrayList<String>();
-    List<String> plant_links = new ArrayList<String>();
-    List<String> image_urls = new ArrayList<String>();
+    List<String> plant_names = new ArrayList<>();
+    List<String> plant_links = new ArrayList<>();
+    List<String> image_urls = new ArrayList<>();
+    List<String> common_names = new ArrayList<>();
     String url = "https://www.wildflower.org/collections/collection.php?collection=";
     String location;
-    int count = 0;
-    TextView tv7;
+
 
     RecyclerView recyclerView;
 
@@ -35,30 +34,24 @@ public class ThirdActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.third_layout);
-        tv7 = findViewById(R.id.textView7);
-        Button button4 = findViewById(R.id.button4);
 
         location = getIntent().getStringExtra("location");
         url = "https://www.wildflower.org/collections/collection.php?collection=" + location + "&pagecount=200";
 
-
         recyclerView = findViewById(R.id.recyclerView);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Native Plants in " + location);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         webscrape wb = new webscrape();
 
-        button4.setOnClickListener(view -> {
-            Intent j = new Intent(ThirdActivity.this, SecondActivity.class);
-            startActivity(j);
-        });
-        tv7.setText("Native Plants in: " + location);
 
         wb.execute();
 
     }
 
     private class webscrape extends AsyncTask<Void, Void, Void>{
-        String text = "";
-        int i = 0;
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -78,6 +71,15 @@ public class ThirdActivity extends AppCompatActivity{
                     String image_url =
                             cols.select("img")
                             .attr("src");
+
+                    Element second_col = cols.get(1);
+                    String common_name = "";
+
+                    List<TextNode> text_nodes = second_col.textNodes();
+                    for(TextNode tn : text_nodes){
+                        common_name += tn.text() + "\n";
+                    }
+
                     if(image_url.equals("")){
                         image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png";
                     }else{
@@ -87,8 +89,8 @@ public class ThirdActivity extends AppCompatActivity{
                     plant_names.add(plant_name);
                     plant_links.add(plant_link);
                     image_urls.add(image_url);
+                    common_names.add(common_name);
 
-                    text += (i) + ". " + plant_names.get(i-1) + "\n";
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -98,11 +100,9 @@ public class ThirdActivity extends AppCompatActivity{
 
         @Override
         protected void onPostExecute(Void aVoid){
-            MyAdapter myAdapter = new MyAdapter(ThirdActivity.this, plant_names, plant_links, image_urls);
+            MyAdapter myAdapter = new MyAdapter(ThirdActivity.this, plant_names, plant_links, image_urls,common_names, location);
             recyclerView.setAdapter(myAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(ThirdActivity.this));
-//                tv2 = findViewById(R.id.textView2);
-//                tv2.setText(text);
         }
     }
 
