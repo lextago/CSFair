@@ -13,10 +13,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
+    Boolean isLocation;
     String location;
 
     private static final String[] locations = new String[] {
-            "Select State:",
+            "Select Location:",
             "AL", "AK", "AZ", "AR", "CA_North",
             "CA_South", "CO", "CT","DC", "DE",
             "FL", "FL_North", "FL_Central", "FL_South", "GA",
@@ -48,8 +49,11 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 if(position > 0){
+                    isLocation = true;
                     location = locations[position];
                     Toast.makeText(SecondActivity.this, "Location: "+location, Toast.LENGTH_SHORT).show();
+                }else{
+                    isLocation = false;
                 }
             }
             @Override
@@ -58,9 +62,13 @@ public class SecondActivity extends AppCompatActivity {
         });
 
         button3.setOnClickListener(view ->{
-            Intent i = new Intent(SecondActivity.this, ThirdActivity.class);
-            i.putExtra("location", location);
-            startActivity(i);
+            if(isLocation){
+                Intent i = new Intent(SecondActivity.this, ThirdActivity.class);
+                i.putExtra("location", location);
+                startActivity(i);
+            }else{
+                Toast.makeText(SecondActivity.this, "Enter a valid location", Toast.LENGTH_SHORT).show();
+            }
         });
 
 
