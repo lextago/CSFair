@@ -2,6 +2,8 @@ package com.example.alextagocsfair;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,6 +31,7 @@ public class ThirdActivity extends AppCompatActivity{
 
 
     RecyclerView recyclerView;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class ThirdActivity extends AppCompatActivity{
         location = getIntent().getStringExtra("location");
         url = "https://www.wildflower.org/collections/collection.php?collection=" + location + "&pagecount=200";
 
+        progressBar = findViewById(R.id.progressBar);
         recyclerView = findViewById(R.id.recyclerView);
         Toolbar toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
@@ -52,6 +56,10 @@ public class ThirdActivity extends AppCompatActivity{
     }
 
     private class webscrape extends AsyncTask<Void, Void, Void>{
+        @Override
+        protected void onPreExecute() {
+            progressBar.setVisibility(View.VISIBLE);
+        }
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -100,6 +108,7 @@ public class ThirdActivity extends AppCompatActivity{
 
         @Override
         protected void onPostExecute(Void aVoid){
+            progressBar.setVisibility(View.INVISIBLE);
             MyAdapter myAdapter = new MyAdapter(ThirdActivity.this, plant_names, plant_links, image_urls,common_names, location);
             recyclerView.setAdapter(myAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(ThirdActivity.this));

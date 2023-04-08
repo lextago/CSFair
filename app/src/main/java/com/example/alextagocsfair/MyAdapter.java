@@ -62,6 +62,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 intent.putExtra("plant_link", plant_link);
                 intent.putExtra("image_url", image_url);
                 intent.putExtra("location", location);
+                intent.putExtra("common_name", common_name);
                 context.startActivity(intent);
             }
         });
