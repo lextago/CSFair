@@ -1,7 +1,10 @@
 package com.example.alextagocsfair;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -74,11 +77,22 @@ public class FourthActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
-                return(true);
+                break;
+            case R.id.info:
+                Intent infotent = new Intent(this, InfoActivity.class);
+                startActivity(infotent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

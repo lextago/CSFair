@@ -1,7 +1,11 @@
 package com.example.alextagocsfair;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,7 +14,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class SecondActivity extends AppCompatActivity {
     Boolean isLocation;
@@ -40,7 +46,12 @@ public class SecondActivity extends AppCompatActivity {
         TextView tv4 = findViewById(R.id.textView4);
         Button button3 = findViewById(R.id.button3);
 
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, locations);
+        Toolbar toolbar = findViewById(R.id.toolbar3);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Plant App");
+
+
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.spinner_item_text, locations);
         Spinner spinner = findViewById(R.id.spinner1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -71,7 +82,24 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        }
 
-
-        };
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.info:
+                Intent infotent = new Intent(this, InfoActivity.class);
+                startActivity(infotent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+}

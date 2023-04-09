@@ -2,8 +2,10 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFD85A"
+    android:background="#BC6C25"
     android:elevation="4dp"
-    android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar">
+    android:textColor="#FEFAE0"
+    android:theme="@style/ToolBarStyle">
+
 
 </androidx.appcompat.widget.Toolbar>
