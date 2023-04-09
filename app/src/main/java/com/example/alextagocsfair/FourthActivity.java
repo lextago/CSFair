@@ -1,6 +1,5 @@
 package com.example.alextagocsfair;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,31 +7,30 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.squareup.picasso.Picasso;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
 public class FourthActivity extends AppCompatActivity {
-    String location, plant_name, plant_link, image_url, common_name, description_text, subtitle1_text, subtitle3_text;
+    String location, plant_name, plant_link, image_url, common_name, subtitle1_text, subtitle3_text;
     ImageView imageView;
     TextView title, description, subtitle1, subtitle2, subtitle3;
     ProgressBar progressBar;
 
+    String description_text = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fourth_layout);
         imageView = findViewById(R.id.imageView2);
@@ -59,7 +57,7 @@ public class FourthActivity extends AppCompatActivity {
                 .into(imageView);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("About Plant");
+        getSupportActionBar().setTitle(plant_name);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         webscrape wb = new webscrape();
@@ -104,6 +102,7 @@ public class FourthActivity extends AppCompatActivity {
                 Element page = doc.select("div#fullpage_content").get(0);
                 Element paragraph = page.select("p").get(0);
                 description_text = paragraph.text();
+
                 subtitle1_text = "Full name: " + page.select("h3").get(0).text();
                 subtitle3_text = "Family: " + page.select("h3").get(2).text();
 
@@ -130,7 +129,9 @@ public class FourthActivity extends AppCompatActivity {
         }
     }
 
-
-
-
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+    }
 }

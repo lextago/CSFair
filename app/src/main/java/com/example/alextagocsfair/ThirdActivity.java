@@ -2,6 +2,7 @@ package com.example.alextagocsfair;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -12,6 +13,7 @@ import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,6 +37,7 @@ public class ThirdActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.third_layout);
 
@@ -115,6 +118,21 @@ public class ThirdActivity extends AppCompatActivity{
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return(true);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+    }
 }
 
 
