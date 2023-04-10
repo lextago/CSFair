@@ -28,7 +28,11 @@ public class InfoActivity extends AppCompatActivity {
                 "2023 CS Fair" + "\n" +
                 "App made by Alex Tago" + "\n" + "\n" + "\n" +
                 "Data collected from" + "\n" +
-                "https://www.wildflower.org/"
+                "https://www.wildflower.org/" + "\n" + "\n" + "\n" +
+                "Credits to:" + "\n" + "\n" +
+                "https://www.flaticon.com for icons" + "\n" +
+                "- Plant Icon created by Aziz Muttaqin" + "\n" +
+                "- Gradient Icon created by Graphics Plazza"
                 ;
 
         body.setText(body_text);
