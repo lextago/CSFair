@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +29,6 @@ public class FourthActivity extends AppCompatActivity {
     ImageView imageView;
     TextView title, description, subtitle1, subtitle2, subtitle3;
     ProgressBar progressBar;
-
     String description_text = "";
 
     @Override
@@ -52,27 +52,19 @@ public class FourthActivity extends AppCompatActivity {
         common_name = getIntent().getStringExtra("common_name");
 
         title.setText(plant_name);
-        Picasso.with(this)
-                .load(image_url)
-//                .resize(300,300)
-                .fit()
-                .centerInside()
-                .into(imageView);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(plant_name);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        webscrape wb = new webscrape();
-        wb.execute();
-
-//        common_name.substring(0,common_name.length()-2);
         while(common_name.contains("\n")){
             int index = common_name.indexOf("\n");
             common_name =common_name.substring(0,index) + ", " + common_name.substring(index+1);
         }
         common_name = "Common names: " + common_name.substring(0, common_name.length()-2);
 
+        webscrape wb = new webscrape();
+        wb.execute();
 
     }
 
@@ -98,6 +90,7 @@ public class FourthActivity extends AppCompatActivity {
     }
 
     private class webscrape extends AsyncTask<Void, Void, Void>{
+        String plant_image_url = "";
         @Override
         protected void onPreExecute() {
             description.setVisibility(View.INVISIBLE);
@@ -120,6 +113,14 @@ public class FourthActivity extends AppCompatActivity {
                 subtitle1_text = "Full name: " + page.select("h3").get(0).text();
                 subtitle3_text = "Family: " + page.select("h3").get(2).text();
 
+                if(!image_url.equals("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png")){
+                    plant_image_url = page.select("a").attr("href");
+                    plant_image_url = "https://www.wildflower.org" + plant_image_url.substring(2);
+
+                    Document doc2 = Jsoup.connect(plant_image_url).get();
+
+                    image_url = "https://www.wildflower.org" + doc2.select("img").get(2).attr("src");
+                }
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -130,16 +131,29 @@ public class FourthActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid){
             progressBar.setVisibility(View.INVISIBLE);
+
+
             description.setText(description_text);
             subtitle2.setText(common_name);
             subtitle1.setText(subtitle1_text);
             subtitle3.setText(subtitle3_text);
+
+
             description.setVisibility(View.VISIBLE);
             imageView.setVisibility(View.VISIBLE);
             title.setVisibility(View.VISIBLE);
             subtitle1.setVisibility(View.VISIBLE);
             subtitle2.setVisibility(View.VISIBLE);
             subtitle3.setVisibility(View.VISIBLE);
+
+            Picasso.with(FourthActivity.this)
+                    .load(image_url)
+//                    .fit()
+//                    .centerCrop()
+//                    .resize(300,300)
+                    .into(imageView);
+
+
         }
     }
 

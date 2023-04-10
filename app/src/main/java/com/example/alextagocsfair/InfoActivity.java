@@ -13,7 +13,7 @@ public class InfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+        overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_screen);
 
@@ -48,6 +48,6 @@ public class InfoActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
     }
 }

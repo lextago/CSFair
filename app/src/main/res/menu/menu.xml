@@ -5,7 +5,7 @@
     <item
         android:title="Info"
         android:id="@+id/info"
-        android:icon="@drawable/baseline_info"
+        android:icon="@drawable/info_icon"
         app:showAsAction="ifRoom"
 
 

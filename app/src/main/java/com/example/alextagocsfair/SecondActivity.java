@@ -62,7 +62,7 @@ public class SecondActivity extends AppCompatActivity {
                 if(position > 0){
                     isLocation = true;
                     location = locations[position];
-                    Toast.makeText(SecondActivity.this, "Location: "+location, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(SecondActivity.this, "Location: "+location, Toast.LENGTH_SHORT).show();
                 }else{
                     isLocation = false;
                 }

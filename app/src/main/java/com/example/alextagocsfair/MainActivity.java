@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, SecondActivity.class);
                 String username = ed1.getText().toString();
-                String password = ed1.getText().toString();
+                String password = ed2.getText().toString();
                 i.putExtra("username", username);
                 i.putExtra("password", password);
 

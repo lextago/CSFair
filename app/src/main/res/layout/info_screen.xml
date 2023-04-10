@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#606C38">
+    android:background="#BC6C25">
 
     <include
         android:id="@+id/toolbar4"
