@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,8 @@ public class SecondActivity extends AppCompatActivity {
 
         TextView tv4 = findViewById(R.id.textView4);
         Button button3 = findViewById(R.id.button3);
+        TextView experimental_text = findViewById(R.id.textView13);
+        ImageButton dropdown = findViewById(R.id.imageButton);
 
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);

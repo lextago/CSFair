@@ -60,7 +60,7 @@
         android:layout_width="141dp"
         android:layout_height="113dp"
         android:layout_marginTop="80dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="75dp"
         android:backgroundTint="#DDA15E"
         android:text="Next"
         android:textColor="#FEFAE0"
@@ -69,5 +69,31 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner1" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="63dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="#80FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:srcCompat="@drawable/arrow_drop_down" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:text="Experimental Features:"
+        android:textColor="#80FEFAE0"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
