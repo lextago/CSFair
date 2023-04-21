@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#606C38">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#606C38">
+
+        <include
+            android:id="@+id/toolbarExp"
+            layout="@layout/toolbar" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/barlow"
+            android:text="ExpInfo"
+            android:textColor="#FEFAE0"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarExp" />
+
+        <Spinner
+            android:id="@+id/appr_spinner"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="144dp"
+            android:background="@drawable/exp_spinner_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:popupBackground="#EBE7D0"
+            android:theme="@style/SpinnerTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <Switch
+            android:id="@+id/appr_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="50dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/appr_spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/appr_spinner"
+            app:layout_constraintTop_toTopOf="@+id/appr_spinner" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

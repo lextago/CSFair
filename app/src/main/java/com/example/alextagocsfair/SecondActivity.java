@@ -22,8 +22,9 @@ import androidx.appcompat.widget.Toolbar;
 public class SecondActivity extends AppCompatActivity {
     Boolean isLocation;
     String location;
+    Boolean exp_features;
 
-    private static final String[] locations = new String[] {
+    String[] locations = {
             "Select Location:",
             "AL", "AK", "AZ", "AR", "CA_North",
             "CA_South", "CO", "CT","DC", "DE",
@@ -47,7 +48,8 @@ public class SecondActivity extends AppCompatActivity {
         TextView tv4 = findViewById(R.id.textView4);
         Button button3 = findViewById(R.id.button3);
         TextView experimental_text = findViewById(R.id.textView13);
-        ImageButton dropdown = findViewById(R.id.imageButton);
+        ImageButton imageButton = findViewById(R.id.imageButton);
+        exp_features = false;
 
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
@@ -85,6 +87,11 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        imageButton.setOnClickListener(view -> {
+            Intent exp_screen = new Intent(SecondActivity.this, ExperimentalFeatures.class);
+            exp_screen.putExtra("location", location);
+            startActivity(exp_screen);
+        });
         }
 
     @Override

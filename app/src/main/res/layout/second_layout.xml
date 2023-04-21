@@ -78,6 +78,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
         android:background="#80FFFFFF"
+        android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
