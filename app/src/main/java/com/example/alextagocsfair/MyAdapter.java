@@ -17,18 +17,15 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
-
+    List<Plant> plants;
     Context context;
-    List<String> plant_names, plant_links, image_urls, common_names;
     String location;
 
-    public MyAdapter(Context context, List<String> plant_names, List<String> plant_links, List<String> image_urls, List<String> common_names,String location){
+    public MyAdapter(Context context,String location, List<Plant> plants){
         this.context = context;
-        this.plant_names = plant_names;
-        this.plant_links = plant_links;
-        this.image_urls = image_urls;
-        this.common_names = common_names;
         this.location = location;
+        this.plants = plants;
+
     }
 
     @NonNull
@@ -41,10 +38,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String plant_name = plant_names.get(position);
-        String plant_link = plant_links.get(position);
-        String image_url = image_urls.get(position);
-        String common_name = common_names.get(position);
+        Plant current = plants.get(position);
+        String plant_name = current.getName();
+        String plant_link = current.getLink();
+        String image_url = current.getImage_url();
+        String common_name = current.getCommon_names();
+
 
         holder.plant_name.setText(plant_name);
         holder.common_name.setText(common_name);
@@ -70,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     @Override
     public int getItemCount() {
-        return plant_names.size();
+        return plants.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

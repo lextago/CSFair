@@ -27,14 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ThirdActivity extends AppCompatActivity{
-    List<String> plant_names = new ArrayList<>();
-    List<String> plant_links = new ArrayList<>();
-    List<String> image_urls = new ArrayList<>();
-    List<String> common_names = new ArrayList<>();
+    List<Plant> plants = new ArrayList<>();
     String url = "https://www.wildflower.org/collections/collection.php?collection=";
     String location;
-
-
     RecyclerView recyclerView;
     ProgressBar progressBar;
 
@@ -55,7 +50,6 @@ public class ThirdActivity extends AppCompatActivity{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         webscrape wb = new webscrape();
-
 
         wb.execute();
 
@@ -100,10 +94,9 @@ public class ThirdActivity extends AppCompatActivity{
                         image_url = "https://www.wildflower.org" + image_url;
                     }
 
-                    plant_names.add(plant_name);
-                    plant_links.add(plant_link);
-                    image_urls.add(image_url);
-                    common_names.add(common_name);
+                    Plant new_plant = new Plant(plant_name, plant_link, image_url, common_name);
+
+                    plants.add(new_plant);
 
                 }
             } catch (IOException e) {
@@ -115,7 +108,7 @@ public class ThirdActivity extends AppCompatActivity{
         @Override
         protected void onPostExecute(Void aVoid){
             progressBar.setVisibility(View.INVISIBLE);
-            MyAdapter myAdapter = new MyAdapter(ThirdActivity.this, plant_names, plant_links, image_urls,common_names, location);
+            MyAdapter myAdapter = new MyAdapter(ThirdActivity.this, location, plants);
             recyclerView.setAdapter(myAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(ThirdActivity.this));
         }
