@@ -19,18 +19,6 @@ import androidx.appcompat.widget.Toolbar;
 public class ExperimentalFeatures extends AppCompatActivity {
     String location;
 
-    String[] appearances = {
-            "herb",
-            "subshrub",
-            "shrub",
-            "tree",
-            "succulent",
-            "grass",
-            "fern",
-            "vine"
-    };
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
@@ -51,9 +39,9 @@ public class ExperimentalFeatures extends AppCompatActivity {
 
         expinfo.setText("Note: Using experimental features may increase the load times significantly.");
 
-        Spinner appr_spinner = findViewById(R.id.appr_spinner);
-        Switch appr_switch = findViewById(R.id.appr_switch);
-        ArrayAdapter<CharSequence> appr_adapter = new ArrayAdapter<CharSequence>(this, R.layout.spinner_item_text, appearances);
+        Spinner appr_spinner = findViewById(R.id.exp_spinner);
+        Switch appr_switch = findViewById(R.id.exp_switch);
+        ArrayAdapter<CharSequence> appr_adapter = ArrayAdapter.createFromResource(this, R.array.appearances_tag, R.layout.spinner_item_text);
         appr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         appr_spinner.setAdapter(appr_adapter);
 

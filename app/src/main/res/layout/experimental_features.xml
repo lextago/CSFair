@@ -31,30 +31,220 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbarExp" />
 
         <Spinner
-            android:id="@+id/appr_spinner"
+            android:id="@+id/exp_spinner1"
             android:layout_width="225dp"
             android:layout_height="75dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="144dp"
             android:background="@drawable/exp_spinner_background"
             android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_horizontal"
             android:popupBackground="#EBE7D0"
             android:theme="@style/SpinnerTheme"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="144dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <Switch
-            android:id="@+id/appr_switch"
+            android:id="@+id/exp_switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="50dp"
             android:scaleX="1.2"
             android:scaleY="1.2"
-            app:layout_constraintBottom_toBottomOf="@+id/appr_spinner"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/exp_spinner1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/appr_spinner"
-            app:layout_constraintTop_toTopOf="@+id/appr_spinner" />
+            app:layout_constraintStart_toEndOf="@+id/exp_spinner1"
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner1" />
+
+
+        <Spinner
+            android:id="@+id/exp_spinner2"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/exp_spinner_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:popupBackground="#EBE7D0"
+            android:theme="@style/SpinnerTheme"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp_spinner1" />
+
+        <Switch
+            android:id="@+id/exp_switch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/exp_spinner2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/exp_spinner2"
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner2" />
+
+
+        <Spinner
+            android:id="@+id/exp_spinner3"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/exp_spinner_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:popupBackground="#EBE7D0"
+            android:theme="@style/SpinnerTheme"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp_spinner2"/>
+
+        <Switch
+            android:id="@+id/exp_switch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/exp_spinner3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/exp_spinner3"
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner3"/>
+
+
+        <Spinner
+            android:id="@+id/exp_spinner4"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/exp_spinner_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:popupBackground="#EBE7D0"
+            android:theme="@style/SpinnerTheme"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp_spinner3"/>
+
+        <Switch
+            android:id="@+id/exp_switch4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/exp_spinner4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/exp_spinner4"
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner4"/>
+
+
+        <Spinner
+            android:id="@+id/exp_spinner5"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/exp_spinner_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:popupBackground="#EBE7D0"
+            android:theme="@style/SpinnerTheme"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp_spinner4"/>
+
+        <Switch
+            android:id="@+id/exp_switch5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/exp_spinner5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/exp_spinner5"
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner5"/>
+
+
+        <Spinner
+            android:id="@+id/exp_spinner6"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/exp_spinner_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:popupBackground="#EBE7D0"
+            android:theme="@style/SpinnerTheme"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp_spinner5"/>
+
+        <Switch
+            android:id="@+id/exp_switch6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/exp_spinner6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/exp_spinner6"
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner6"/>
+
+
+        <Spinner
+            android:id="@+id/exp_spinner7"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/exp_spinner_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:popupBackground="#EBE7D0"
+            android:theme="@style/SpinnerTheme"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp_spinner6"/>
+
+        <Switch
+            android:id="@+id/exp_switch7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/exp_spinner7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/exp_spinner7"
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner7"/>
+
+
+        <Spinner
+            android:id="@+id/exp_spinner8"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:background="@drawable/exp_spinner_background"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:popupBackground="#EBE7D0"
+            android:theme="@style/SpinnerTheme"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp_spinner7"/>
+
+        <Switch
+            android:id="@+id/exp_switch8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintBottom_toBottomOf="@+id/exp_spinner8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/exp_spinner8"
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner8"/>
+
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
