@@ -39,16 +39,53 @@ public class ExperimentalFeatures extends AppCompatActivity {
 
         expinfo.setText("Note: Using experimental features may increase the load times significantly.");
 
-        Spinner appr_spinner = findViewById(R.id.exp_spinner);
-        Switch appr_switch = findViewById(R.id.exp_switch);
-        ArrayAdapter<CharSequence> appr_adapter = ArrayAdapter.createFromResource(this, R.array.appearances_tag, R.layout.spinner_item_text);
+        Spinner appr_spinner = findViewById(R.id.exp_spinner1);
+        Switch appr_switch = findViewById(R.id.exp_switch1);
+        ArrayAdapter<CharSequence> appr_adapter = ArrayAdapter.createFromResource(this, R.array.appearances, R.layout.spinner_item_text);
         appr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         appr_spinner.setAdapter(appr_adapter);
 
+        Spinner dur_spinner = findViewById(R.id.exp_spinner2);
+        Switch dur_switch = findViewById(R.id.exp_switch2);
+        ArrayAdapter<CharSequence> dur_adapter = ArrayAdapter.createFromResource(this, R.array.duration, R.layout.spinner_item_text);
+        dur_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dur_spinner.setAdapter(dur_adapter);
 
+        Spinner light_spinner = findViewById(R.id.exp_spinner3);
+        Switch light_switch = findViewById(R.id.exp_switch3);
+        ArrayAdapter<CharSequence> light_adapter = ArrayAdapter.createFromResource(this, R.array.light, R.layout.spinner_item_text);
+        light_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        light_spinner.setAdapter(light_adapter);
 
+        Spinner moist_spinner = findViewById(R.id.exp_spinner4);
+        Switch moist_switch = findViewById(R.id.exp_switch4);
+        ArrayAdapter<CharSequence> moist_adapter = ArrayAdapter.createFromResource(this, R.array.moisture, R.layout.spinner_item_text);
+        moist_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        moist_spinner.setAdapter(moist_adapter);
 
+        Spinner bloom_spinner = findViewById(R.id.exp_spinner5);
+        Switch bloom_switch = findViewById(R.id.exp_switch5);
+        ArrayAdapter<CharSequence> bloom_adapter = ArrayAdapter.createFromResource(this, R.array.bloom, R.layout.spinner_item_text);
+        bloom_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        bloom_spinner.setAdapter(bloom_adapter);
 
+        Spinner color_spinner = findViewById(R.id.exp_spinner6);
+        Switch color_switch = findViewById(R.id.exp_switch6);
+        ArrayAdapter<CharSequence> color_adapter = ArrayAdapter.createFromResource(this, R.array.color, R.layout.spinner_item_text);
+        color_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        color_spinner.setAdapter(color_adapter);
+
+        Spinner retent_spinner = findViewById(R.id.exp_spinner7);
+        Switch retent_switch = findViewById(R.id.exp_switch7);
+        ArrayAdapter<CharSequence> retent_adapter = ArrayAdapter.createFromResource(this, R.array.retention, R.layout.spinner_item_text);
+        retent_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        retent_spinner.setAdapter(retent_adapter);
+
+        Spinner arrang_spinner = findViewById(R.id.exp_spinner8);
+        Switch arrang_switch = findViewById(R.id.exp_switch8);
+        ArrayAdapter<CharSequence> arrang_adapter = ArrayAdapter.createFromResource(this, R.array.arrangement, R.layout.spinner_item_text);
+        arrang_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        arrang_spinner.setAdapter(arrang_adapter);
     }
 
 

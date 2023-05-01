@@ -220,15 +220,17 @@
             android:id="@+id/exp_spinner8"
             android:layout_width="225dp"
             android:layout_height="75dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="100dp"
             android:background="@drawable/exp_spinner_background"
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center_horizontal"
             android:popupBackground="#EBE7D0"
             android:theme="@style/SpinnerTheme"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exp_spinner7"/>
+            app:layout_constraintTop_toBottomOf="@+id/exp_spinner7" />
 
         <Switch
             android:id="@+id/exp_switch8"
@@ -239,7 +241,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/exp_spinner8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/exp_spinner8"
-            app:layout_constraintTop_toTopOf="@+id/exp_spinner8"/>
+            app:layout_constraintTop_toTopOf="@+id/exp_spinner8" />
 
 
 
