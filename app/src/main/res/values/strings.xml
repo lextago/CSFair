@@ -13,20 +13,8 @@
         <item>Vine</item>
     </string-array>
 
-    <string-array name="appearances_tag">
-        <item>Appearance</item>
-        <item>herb</item>
-        <item>subshrub</item>
-        <item>shrub</item>
-        <item>tree</item>
-        <item>succulent</item>
-        <item>grass</item>
-        <item>fern</item>
-        <item>vine</item>
-    </string-array>
 
 
-    
     <string-array name="duration">
         <item>Duration</item>
         <item>Annual</item>
@@ -34,27 +22,13 @@
         <item>Perennial</item>
     </string-array>
 
-    <string-array name="duration_tag">
-        <item>Duration</item>
-        <item>annual</item>
-        <item>biennial</item>
-        <item>perennial</item>
-    </string-array>
 
 
-    
     <string-array name="light">
         <item>Light Requirement</item>
         <item>Sun</item>
         <item>Part Shade</item>
         <item>Shade</item>
-    </string-array>
-
-    <string-array name="light_tag">
-        <item>Light Requirement</item>
-        <item>light_sun</item>
-        <item>light_partshade</item>
-        <item>light_shade</item>
     </string-array>
 
 
@@ -64,13 +38,6 @@
         <item>Dry</item>
         <item>Moist</item>
         <item>Wet</item>
-    </string-array>
-
-    <string-array name="moisture_tag">
-        <item>Soil Moisture</item>
-        <item>moist_dry</item>
-        <item>moist_moist</item>
-        <item>moist_wet</item>
     </string-array>
 
 
@@ -91,22 +58,6 @@
         <item>Dec</item>
     </string-array>
 
-    <string-array name="bloom_tag">
-        <item>Bloom Time</item>
-        <item>jan</item>
-        <item>feb</item>
-        <item>mar</item>
-        <item>apr</item>
-        <item>may</item>
-        <item>jun</item>
-        <item>jul</item>
-        <item>aug</item>
-        <item>sep</item>
-        <item>oct</item>
-        <item>nov</item>
-        <item>dec</item>
-    </string-array>
-
 
 
     <string-array name="color">
@@ -124,21 +75,6 @@
         <item>Black</item>
     </string-array>
 
-    <string-array name="color_tag">
-        <item>Color</item>
-        <item>white</item>
-        <item>red</item>
-        <item>pink</item>
-        <item>orange</item>
-        <item>yellow</item>
-        <item>green</item>
-        <item>blue</item>
-        <item>purple</item>
-        <item>violet</item>
-        <item>brown</item>
-        <item>black</item>
-    </string-array>
-
 
 
     <string-array name="retention">
@@ -146,13 +82,6 @@
         <item>Deciduous</item>
         <item>Evergreen</item>
         <item>Semi-evergreen</item>
-    </string-array>
-
-    <string-array name="retention_tag">
-        <item>Retention</item>
-        <item>leafretention_deciduous</item>
-        <item>leafretention_evergreen</item>
-        <item>leafretention_semievergreen</item>
     </string-array>
 
 
@@ -163,13 +92,5 @@
         <item>Opposite</item>
         <item>Whorled</item>
         <item>Fascicled</item>
-    </string-array>
-
-    <string-array name="arrangement_tag">
-        <item>Arrangement</item>
-        <item>leafarrangement_alternate</item>
-        <item>leafarrangement_opposite</item>
-        <item>leafarrangement_whorled</item>
-        <item>leafarrangement_fascicled</item>
     </string-array>
 </resources>

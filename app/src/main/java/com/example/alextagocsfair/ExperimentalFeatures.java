@@ -1,16 +1,21 @@
 package com.example.alextagocsfair;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +23,18 @@ import androidx.appcompat.widget.Toolbar;
 
 public class ExperimentalFeatures extends AppCompatActivity {
     String location;
+    String appr, dur, light, moist, bloom, color, retent, arrang;
+
+    String url = "https://www.wildflower.org/collections/collection.php?collection=";
+
+    String[] appr_tag = {"herb", "subshrub", "tree", "succulent", "grass", "fern", "vine"};
+    String[] dur_tag = {"annual", "biennial", "perennial"};
+    String[] light_tag = {"light_sun", "light_partshade", "light_shade"};
+    String[] moist_tag = {"moist_dry", "moist_moist", "moist_wet"};
+    String[] bloom_tag = {"jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"};
+    String[] color_tag = {"white", "red", "pink", "orange", "yellow", "green", "blue", "purple", "violet", "brown", "black"};
+    String[] retent_tag = {"leafretention_deciduous", "leafretention_evergreen", "leafretention_semievergreen"};
+    String[] arrang_tag = {"leafarrangement_alternate", "leafarrangement_opposite", "leafarrangement_whorled", "leafarrangement_fascicled"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +53,47 @@ public class ExperimentalFeatures extends AppCompatActivity {
         Window window = getWindow();
         window.setStatusBarColor(Color.parseColor("#606C38"));
 
-
         expinfo.setText("Note: Using experimental features may increase the load times significantly.");
+
+
 
         Spinner appr_spinner = findViewById(R.id.exp_spinner1);
         Switch appr_switch = findViewById(R.id.exp_switch1);
         ArrayAdapter<CharSequence> appr_adapter = ArrayAdapter.createFromResource(this, R.array.appearances, R.layout.spinner_item_text);
         appr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         appr_spinner.setAdapter(appr_adapter);
+
+        appr_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i > 0) {
+                    appr = "&habit=habit_" + appr_tag[i-1];
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        appr_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    if(url.contains(null)){
+                        Toast.makeText(ExperimentalFeatures.this, "Select a valid option.", Toast.LENGTH_SHORT).show();
+                        appr_switch.setChecked(false);
+                    }else{
+                        url += appr;
+                        Toast.makeText(ExperimentalFeatures.this, url, Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    if(url.contains(appr)) {
+                        url = url.replace(appr, "");
+                        Toast.makeText(ExperimentalFeatures.this, url, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
 
         Spinner dur_spinner = findViewById(R.id.exp_spinner2);
         Switch dur_switch = findViewById(R.id.exp_switch2);
@@ -90,6 +140,13 @@ public class ExperimentalFeatures extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -117,5 +174,9 @@ public class ExperimentalFeatures extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
     }
 
+    public void update_url(){
+
+
+    }
 
 }
