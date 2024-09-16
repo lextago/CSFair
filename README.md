@@ -1,4 +1,4 @@
-#Plant App by Alexander Tago
+# Plant App by Alexander Tago
 Displays the native plants of an inputted location.
 Data gathered from https://www.wildflower.org/.
 Includes scientific names, common names, and plant descriptions.
